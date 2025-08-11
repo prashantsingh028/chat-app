@@ -16,11 +16,21 @@ const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json()); 
 app.use(cookieParser());
-const corsOption={
-    origin:'http://localhost:3000',
-    credentials:true
+// const corsOption={
+//     origin:'http://localhost:3000',
+//     credentials:true
+// };
+
+const corsOption = {
+    origin: [
+        "http://localhost:3000", // agar kabhi port 3000 se run kare
+        "http://localhost:3001", // tumhara current frontend dev port
+        "https://chat-app-1-0jlj.onrender.com" // deploy hone par frontend ka actual URL
+    ],
+    credentials: true
 };
-app.use(cors(corsOption)); 
+app.use(cors(corsOption));
+
 
 
 // routes

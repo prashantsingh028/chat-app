@@ -3,7 +3,7 @@ import { LuSearch } from "react-icons/lu";
 import OtherUsers from "./OtherUsers";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setAuthUser, setOtherUsers } from "../redux/userSlice";
 
@@ -52,6 +52,9 @@ const SideBar = () => {
             </form>
             <div className="divider px-3 "></div>
             <OtherUsers />
+            <Link to="login" className="btn btn-sm mt-2"> Login</Link>
+            <br />
+            <Link to="register" className="btn btn-sm mt-2"> Register </Link>
             <div>
                 <button onClick={logoutHandler} className="btn btn-sm mt-2">Logout </button>
             </div>
